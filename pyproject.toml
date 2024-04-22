@@ -1,0 +1,31 @@
+[project]
+name = "hello-openai"
+requires-python = ">= 3.11"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+target-version = ['py311']
+
+[tool.poetry]
+name = "hello-openai"
+version = "0.1.0"
+description = ""
+authors = ["Samuli Kolehmainen <samuli.kolehmainen@gmail.com>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.11"
+openai = "^1.23.2"
+python-dotenv = "^1.0.1"
+httpx = "^0.27.0"
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.13.2"
+black = "^24.4.0"
+
+[tool.poe.tasks]
+format-check.shell = "black --check . && isort --check-only ."
